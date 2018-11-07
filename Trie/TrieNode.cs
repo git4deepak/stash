@@ -20,17 +20,19 @@ namespace TrieData
         }
 
         // Will Throw exception is c already exist as child.
-        public void AddChild(char c, TrieNode tn)
+        private void AddChild(char c, TrieNode tn)
         {
             children[c] = tn;
         }
-        public TrieNode GetHoldingNode(char c)
+        public TrieNode GetHoldingNode(char c, bool isLast = false)
         {
             if(!children.ContainsKey(c))
             {
-                return this;
+                var child = new TrieNode(c, isLast);
+                this.AddChild(c, child);
+                return child;
             }
-            return children[c].GetHoldingNode(c);
+            return children[c];
         }
 
         public bool Seek(char c, out TrieNode n)

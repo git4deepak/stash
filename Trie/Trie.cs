@@ -16,16 +16,13 @@ namespace TrieData
                 return;
             }
 
-            TrieNode node, searchHere = root;
+            TrieNode searchHere = root;
             int i=0;
             for (; i < word.Length-1; ++i)
             {
-                node = searchHere.GetHoldingNode(word[i]);
-                node.AddChild(word[i], new TrieNode(word[i]));
-                searchHere = node;
+                searchHere = searchHere.GetHoldingNode(word[i]);
             }
-            node = searchHere.GetHoldingNode(word[i]);
-            node.AddChild(word[i], new TrieNode(word[i], true/*IsLast*/));
+            searchHere.GetHoldingNode(word[i], true/*IsLast*/);
         }
 
         public bool Exist(string word)
