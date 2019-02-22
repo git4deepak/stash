@@ -8,6 +8,8 @@ namespace ArrayPractice
         {
             SpecialMatrix sm = new SpecialMatrix();
             sm.Test();
+            NonDecreasing nd = new NonDecreasing();
+            nd.Test();
         }
     }
 }
