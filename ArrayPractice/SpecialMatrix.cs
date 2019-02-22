@@ -3,7 +3,7 @@ namespace ArrayPractice
 using System;
 using TestSupport;
 public class SpecialMatrix{
-    bool IsSpecialMatrix(int[,] matrix)
+    public bool IsSpecialMatrix(int[,] matrix)
     {
         int rows = matrix.GetLength(0);
         int cols = matrix.GetLength(1);
@@ -11,39 +11,37 @@ public class SpecialMatrix{
         // diagonals starting at colummn 0
         for (int r = rows-1; r >= 0; --r)
         {
-            int c = 0;
-            int r1 = r;
-            int val = matrix[r1,c];
-            ++r1;++c;
-            for (; c < cols && r1 < rows ; ++c, ++r1)
+            if(!ScanDiagonal(matrix, rows, cols, r, 0))
             {
-                if(val >= matrix[r1,c])
-                {
-                    return false;
-                }
-                val = matrix[r1,c];
+                return false;
             }
         }
 
         // diagonals starting at row 0
         for (int c = 1; c < cols; ++c)
         {
-            int c1 = c;
-            int r = 0;
-            int val = matrix[r,c1];
-
-            ++r;++c1;
-            for (; c1< cols && r < rows; ++c1, ++r)
+            if(!ScanDiagonal(matrix, rows, cols, 0, c))
             {
-                if(val >= matrix[r,c1])
-                {
-                    return false;
-                }
-                val = matrix[r,c1];
+                return false;
             }
         }
 
         return true;
+    }
+
+    bool ScanDiagonal(int[,] matrix, int rows, int cols, int rr, int cc)
+    {
+            int val = matrix[rr,cc];
+            ++rr;++cc;
+            for (; cc< cols && rr < rows; ++cc, ++rr)
+            {
+                if(val >= matrix[rr,cc])
+                {
+                    return false;
+                }
+                val = matrix[rr,cc];
+            }
+            return true;
     }
 
     public void Test()
