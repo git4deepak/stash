@@ -1,0 +1,2 @@
+# Description
+Create a class which given a search string (length of search string >= 3) provides top 3 keywords that start with given seach string. The class initially provided with a list of unique search strings.
