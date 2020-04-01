@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/searchStrings/bin/Debug/netcoreapp3.1/searchStrings.dll",
+            "program": "${workspaceFolder}/LRUCache/bin/Debug/netcoreapp3.1/LRUCache.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
