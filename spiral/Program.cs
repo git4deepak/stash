@@ -9,40 +9,22 @@ IList<int> SpiralOrder(int[][] matrix) {
     
     while (row_s <= row_e || col_s <= col_e)
     {
-        Console.WriteLine("--> Start {0} {1} {2} {3}", row_s, row_e, col_s, col_e);
         for (int j = col_s; j <= col_e && row_s <= row_e; ++j)
-        {
             result.Add(matrix[row_s][j]);
-            Console.WriteLine(matrix[row_s][j]);
-        }
         row_s++;
-        Console.WriteLine("--> row_s {0} {1} {2} {3}", row_s, row_e, col_s, col_e);
         
         for(int i = row_s; i <= row_e && col_s <= col_e; ++i)
-        {
             result.Add(matrix[i][col_e]);
-            Console.WriteLine(matrix[i][col_e]);
-        }
         col_e--;
-        Console.WriteLine("--> col_e {0} {1} {2} {3}", row_s, row_e, col_s, col_e);
+
         for (int j = col_e; j >= col_s&& row_s <= row_e; --j)
-        {
             result.Add(matrix[row_e][j]);
-            Console.WriteLine(matrix[row_e][j]);
-        }
         row_e--;
-        Console.WriteLine("--> row_e {0} {1} {2} {3}", row_s, row_e, col_s, col_e);
+
         for (int i = row_e; i >= row_s && col_s <= col_e; --i)
-        {
             result.Add(matrix[i][col_s]);
-            Console.WriteLine(matrix[i][col_s]);
-        }
         col_s++;
-        Console.WriteLine("--> col_s {0} {1} {2} {3}", row_s, row_e, col_s, col_e);
     }
-    
-    foreach( var i in result)
-        Console.WriteLine(i);
     
     return result;
 }
